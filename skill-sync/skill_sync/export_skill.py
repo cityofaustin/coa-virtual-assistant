@@ -33,5 +33,5 @@ def export_skill(**args):
 
 skill = export_skill()
 
-with open(f"../exports/{datetime.today().strftime('%m-%d-%Y')}_{workspace_id}.json", 'w') as file:
+with open(f"./exports/{datetime.today().strftime('%m-%d-%Y')}_{workspace_id}.json", 'w') as file:
     json.dump(skill, file, indent=4)
