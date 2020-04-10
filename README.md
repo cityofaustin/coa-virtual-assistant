@@ -15,7 +15,20 @@ The flow will be something like:
 
 * The JSON files in the repo could also be edited directly, if a change is committed to a given branch on the repo, than that file needs to be imported to watson
 
+![strat](https://user-images.githubusercontent.com/10539855/79008780-bb9e3180-7b23-11ea-9e50-369264f2a778.png)
+
+
 ## What is here
 
 * JSON exports of the assistant and it's associated skills
 * code needed to embed the widget on a website
+
+### Links, other resources
+
+Project owners:
+
+Eric Sherman
+eric.sherman@austintexas.gov
+
+#### Trello Boarrd
+https://trello.com/b/pOMHcXEB/emerging-tech
