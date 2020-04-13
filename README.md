@@ -30,6 +30,7 @@ The flow will be something like:
 1. Clone this repo
 1. Install Poetry if you haven't
 1. Browse to the 'skill-sync' folder
+1. Create a .env file and add your API key to it
 1. Run `poetry install`
 1. Run `poetry run python export_skill.py`
 1. If everything works, you should see a new file in the 'exports' folder
