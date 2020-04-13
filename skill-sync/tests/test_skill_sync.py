@@ -10,4 +10,6 @@ given an api key, we get a valid response
 test using requeests library
 test json output is valid
 test output is saved to file (probs need some sort of naming convention)
+
+TEST if response is 200 (ex i got rate limit exceeded)
 """
