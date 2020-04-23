@@ -34,5 +34,8 @@ def export_skill(**args):
 
 # TODO: turn this into a function, decide what filepath to use/where it would becalled
 skill = export_skill()
-with open(f"../exports/{datetime.today().strftime('%m-%d-%Y')}_{workspace_id}.json", 'w+') as file:
+with open(f"../exports/archive/{datetime.today().strftime('%m-%d-%Y')}_{workspace_id}.json", 'w+') as file:
+    json.dump(skill, file, indent=4)
+
+with open(f"../exports/covidbot.json", 'w+') as file:
     json.dump(skill, file, indent=4)
