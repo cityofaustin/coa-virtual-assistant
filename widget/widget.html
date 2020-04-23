@@ -1,17 +1,13 @@
 <style type="text/css">@keyframes slideInRight {
-        from {
-            transform: translate3d(100%, 0, 0);
-            visibility: visible;
-        }
+      from {
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+      }
 
-
-
-        to {
-            transform: translate3d(0, 0, 0);
-        }
+      to {
+        transform: translate3d(0, 0, 0);
+      }
     }
-
-
 
     button.chatLauncher {
         box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6),
@@ -40,62 +36,45 @@
         padding: 10px;
         opacity: 0.5;
     }
+
     button.chatLauncher.open {
-        animation-name: slideInRight;
-        opacity: 1;
+      animation-name: slideInRight;
+      opacity: 1;
     }
-
-
 
     button.chatLauncher:hover,
     button.chatLauncher:focus {
         opacity: 0.9;
         border: 4px solid #1c3583;
-        color: White;
+        color: white;
     }
-
-
 
     button.chatLauncher:focus {
         outline: 1px solid #0053ba;
         outline-offset: -4px;
     }
 </style>
-<!-- We want to hide this element initially, because Web Chat isn't ready yet. -->
-<div class="chatbot-parent"><button class="chatLauncher open" style="display: block;" type="button"><strong>COVID-19</strong><br />
+<p><strong>COVID-19</strong><br />
+Questions?</p>
+
+<div><button class="chatLauncher" style="display:none;" type="button"><strong>COVID-19</strong><br />
 Questions?</button></div>
-<script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script><script>
-  window
-        .loadWatsonAssistantChat({
-            integrationID: 'adcbbf1e-5683-4c6e-8338-5a04aa3bd677', // The ID of this integration.
-            region: 'us-south', // The region your integration is hosted in.
-            __ibm__: {
-                botNameOverride: 'Virtual Assistant for COVID-19'
-            },
-            showLauncher: false
-        })
-        .then(function(instance) {
-            // Select the button element from the page.
-            var button = document.querySelector('.chatLauncher');
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: 'adcbbf1e-5683-4c6e-8338-5a04aa3bd677', // The ID of this integration.
+    region: 'us-south', // The region your integration is hosted in.
+    showLauncher: false,
 
-
-
-            // Add the event listener to open your Web Chat.
-            button.addEventListener('click', function() {
-                instance.openWindow();
-            });
-            // Render the Web Chat. Nothing appears on the page, because the launcher is
-            // hidden and the Web Chat window is closed by default.
-            instance.render().then(function() {
-                // Now that Web Chat has been rendered (but is still closed), we make the
-                // custom launcher button visible.
-                button.style.display = 'block';
-                // Make parent div viewable and 0px height
-                // to avoid random white space on the bottom of the page
-                button.parentElement.style.display = 'block';
-                button.parentElement.style.visibility = 'visible';
-                button.parentElement.style.height = '0px';
-                button.classList.add('open');
-            });
-        });
+    onLoad: function (instance) {
+      const button = document.querySelector('.chatLauncher');
+      button.addEventListener('click', () => {
+        instance.openWindow();
+      });
+      instance.render().then(() => {
+        button.style.display = 'block';
+        button.classList.add('open');
+      });
+    },
+  };
+  setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/covid/webchat.js';document.head.appendChild(t);});
 </script>
